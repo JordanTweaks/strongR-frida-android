@@ -1,8 +1,5 @@
 name: strongR-frida
 
-env:
-FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 on:
   schedule:
     - cron: "0 9/12 * * *"
@@ -72,6 +69,7 @@ jobs:
         id: createRelease
         name: Create Runner Release
         env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: "${{ needs.check_version.outputs.FRIDA_VERSION }}"
@@ -223,6 +221,7 @@ jobs:
     - name: Upload android x86_64 frida-server for hluda
       uses: actions/upload-release-asset@v1.0.2
       env:
+     
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: '${{ steps.checkReleaseVersion.outputs.upload_url }}'
@@ -243,6 +242,7 @@ jobs:
     - name: Upload android arm64 frida-inject for hluda
       uses: actions/upload-release-asset@v1.0.2
       env:
+   
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: '${{ steps.checkReleaseVersion.outputs.upload_url }}'
@@ -253,6 +253,7 @@ jobs:
     - name: Upload android x86 frida-inject for hluda
       uses: actions/upload-release-asset@v1.0.2
       env:
+
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: '${{ steps.checkReleaseVersion.outputs.upload_url }}'
@@ -263,6 +264,7 @@ jobs:
     - name: Upload android x86_64 frida-inject for hluda
       uses: actions/upload-release-asset@v1.0.2
       env:
+ 
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: '${{ steps.checkReleaseVersion.outputs.upload_url }}'
@@ -273,6 +275,7 @@ jobs:
     - name: Upload android arm frida-gadget for hluda
       uses: actions/upload-release-asset@v1.0.2
       env:
+   
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: '${{ steps.checkReleaseVersion.outputs.upload_url }}'
